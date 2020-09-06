@@ -4,7 +4,7 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 
 Given('User Select pickUp location from Search option', () => {
 
-  cy.visit('http://stg.beno.com')
+  cy.visit('https://stg.beno.com')
   cy.xpath("//input[@placeholder='Dubai, United Arab Emirates (DXB-Dubai Intl.)']").type('Dubai')
   cy.wait(2000)
   cy.xpath("//ul[@role='listbox']//li/descendant::span[@class='ng-tns-c9-2 ng-star-inserted']").contains('Dubai Mall').click()
