@@ -98,6 +98,11 @@ When('User fill all the details about driver and clikc on submit', () => {
     .click({force:true})
     cy.wait(3000)
     cy.xpath("//main[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/select[1]/option[3]")
+    cy.wait(2000)
+    cy.xpath("//div[1]//div[2]//form[1]//div[1]/select[1]")
+    .click({force:true})
+    cy.wait(3000)
+    cy.xpath("//div//div[2]//form//div[1]//select/option[3]")
     .click({ force: true })
     cy.wait(2000)
     cy.get('#firstName').type('Shraddha')
@@ -113,10 +118,14 @@ When('User fill all the details about driver and clikc on submit', () => {
     cy.wait(2000)
     cy.xpath("//button[@class='btn btn-lg btn-success']").click({ force: true })
     cy.wait(2000)
-
+    
+    
+    
 });
 
 When('User navigate to Payment Details page', () => {
+    
+
     cy.get('#name').type('Shraddha Dhatavkar')
     cy.wait(2000)
     cy.get('#cardNumber').type('5555555555554444')

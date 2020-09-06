@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "merge":"mochawesome-merge cypress/reports/*.json > cypress/reports/output.json",
-    "generate_mochawesome_report":"marge cypress/reports/output.json --reportDir ./ --inline"
+    "merge": "mochawesome-merge cypress/reports/*.json > cypress/reports/output.json",
+    "generate_mochawesome_report": "marge cypress/reports/output.json --reportDir ./ --inline"
   },
   "keywords": [],
   "author": "",

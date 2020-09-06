@@ -16,7 +16,7 @@ Given('User selecting PickUp location', () => {
 Given('User click on FindCar button', () => {
   cy.wait(2000)
   cy.xpath("//span[contains(text(),'FIND CAR')]").click({ force: true })
-  cy.wait(2000)
+  cy.wait(10000)
 });
 
 Given('User click on SortBy Feature', () => {
@@ -40,6 +40,14 @@ When('click on View deal option', () => {
 Then('User navigate to options Tab', () => {
   
   cy.log('User navigate to next tab')
+  cy.url()
+  cy.wait(2000)
+  cy.xpath("//*[text()='Important information about your rental']").click({force:true})
+  cy.wait(3000)
+  cy.xpath("//*[text()='Car Details']").click({force:true})
+  cy.wait(3000)
+  cy.xpath("//button[@class='btn d-flex text-left btn-lg btn-success mr-2']").click({force:true})
+  cy.wait(3000)
 });
 ///p-accordiontab[@class='ng-tns-c15-9 ng-star-inserted']//p-checkbox[2]//div[1]//div[2]
 ////p-accordiontab[@class='ng-tns-c15-9 ng-star-inserted']//p-checkbox[2]//div[1]//div[2]
