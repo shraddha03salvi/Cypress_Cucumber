@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  cypress:
+    build:
+      context: .
+    image: "beno/cypress:latest"
