@@ -1,0 +1,40 @@
+# I am not using this step because it adds 4 minutes to the pipeline due to the upload/download of an artifact
+# Hence, I decided to combine everything in one step (Build & Push to ECR)
+buildDocker: &buildDocker
+  name: Build Docker Image
+  image: python:3.6
+  services:
+  - docker
+  script:
+  - curl -L https://github.com/docker/compose/releases/download/1.26.2/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose
+  - chmod +x /usr/local/bin/docker-compose
+  - gitcommithash=$(git rev-parse HEAD) docker-compose build cypress
+  - docker image save beno/cypress > cypress-docker-image.tar
+  artifacts:
+  - cypress-docker-image.tar
+
+# This is the only step used
+pushToECR: &pushToECR
+  name: Build & Push to ECR
+  image: python:3.6
+  services:
+  - docker
+  script:
+  - curl -L https://github.com/docker/compose/releases/download/1.26.2/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose
+  - chmod +x /usr/local/bin/docker-compose
+  - docker-compose build cypress
+  - pipe: atlassian/aws-ecr-push-image:1.2.0
+    variables:
+      AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+      AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+      IMAGE_NAME: beno/cypress
+      TAGS: '${BITBUCKET_COMMIT} latest'
+
+options:
+  max-time: 30
+pipelines:
+  branches:
+    master:
+      - step:
+          <<: *pushToECR
