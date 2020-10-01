@@ -2,10 +2,14 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 
 Given('User must be on Home page', () => {
-  
+  cy.log('Launching Website and Select PickUp location')
+
   cy.visit(Cypress.env('baseUrl'))
   cy.wait(3000)
+
+  
 });
+
 When('User click on Help Icon and user should navigate to Help page', () => {
   cy.get('.navbar-toggle').click()
   cy.wait(2000)
@@ -15,14 +19,13 @@ When('User click on Help Icon and user should navigate to Help page', () => {
   cy.xpath("//a[@class='navbar-toggle active']").click({force:true})
   cy.wait(2000)
 });
-When('User click on specific Question arrow', () => {
-cy.xpath("//a[@class='ng-tns-c12-4']//span[@class='ui-accordion-toggle-icon pi pi-fw pi-chevron-right']").click({force:true})
-cy.xpath(2000)
-cy.xpath("//a[@class='ng-tns-c12-5']//span[@class='ui-accordion-toggle-icon pi pi-fw pi-chevron-right']").click({force:true})
-cy.wait(4000)
+
+When('User click on privacy Option', () => {
+  cy.xpath("//a[contains(text(),'Privacy')]").click();
+  cy.wait(2000)
+
 });
 
-Then('User should able to see complete content of Answer', () => {
-  cy.xpath("//span[@class='ui-accordion-toggle-icon pi pi-fw pi-chevron-down']").click({force:true})
-  cy.xpath(2000)
+Then('User should able to navigate to privacy page', () => {
+
 });
