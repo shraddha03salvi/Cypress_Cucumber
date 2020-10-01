@@ -1,16 +1,15 @@
 /// <reference types ="Cypress"/>
 
 
-
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 
 
 Given('User Select pickUp location from Search option', () => {
-  cy.visit('http://stg.beno.com')
+  cy.visit(Cypress.env('baseUrl'))
   cy.xpath("//input[@placeholder='Dubai, United Arab Emirates (DXB-Dubai Intl.)']").type('Dubai')
 
   cy.xpath("//ul[@role='listbox']//li/descendant::div[@class='ui-helper-clearfix ng-star-inserted']")
-  .contains('Dubai Marina').click()
+  .contains('Dubai International Airport').click()
   //ui-autocomplete-items ui-autocomplete-list ui-widget-content ui-widget ui-corner-all ui-helper-reset
 });
 
@@ -19,7 +18,7 @@ Given('User Select DropOff Location from Search option', () => {
   cy.xpath("//span[@class='ng-tns-c9-3 ui-autocomplete ui-widget']//input[@placeholder='Dubai, United Arab Emirates (DXB-Dubai Intl.)']")
   .type('Dubai')
   cy.xpath("//ul[@role='listbox']//li/descendant::div[@class='ui-helper-clearfix ng-star-inserted']")
-  .contains('Dubai Media City').click()
+  .contains('Al Maktoum International Airport').click()
 });
 
 When('User select PickUp Date and DropOff Date', () => {
@@ -54,7 +53,7 @@ When('User select PickUp Date and DropOff Date', () => {
 
 When('User Select PickUp Time and  Drop-off Time', () => {
 
- 
+cy.wait(4000)
 //  cy.xpath("//div//div[1]//app-advanced-search//div//div[4]/div/select[1]").select('14',{force:true})
 //  .should('have.value','14')
 //  cy.wait(3000)
@@ -66,6 +65,7 @@ cy.xpath("//div//div[1]//app-advanced-search//div//div[5]/div/select[1]").select
 cy.wait(3000)
 cy.xpath("//div//div[1]//app-advanced-search//div//div[5]/div/select[2]").select('30',{force:true})
 .should('have.value','30')
+cy.wait(4000)
 
 
 });

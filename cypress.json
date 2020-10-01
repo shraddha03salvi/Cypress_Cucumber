@@ -10,5 +10,13 @@
     "html": true,
     "json": true,
     "charts":true
+  },
+  
+
+  "env":{
+
+    "baseUrl": "https://stg.beno.com/"
+    
+    
   }
 }

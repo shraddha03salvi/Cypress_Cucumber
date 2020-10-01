@@ -2,7 +2,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 
 Given('User must be on Home page of WebSite and click on Manage Booking Option', () => {
-  cy.visit('http://stg.beno.com')
+  cy.visit(Cypress.env('baseUrl'))
   cy.wait(2000)
   cy.get('.navbar-toggle').click()
   cy.wait(2000)

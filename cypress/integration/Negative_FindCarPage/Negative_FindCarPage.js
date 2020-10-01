@@ -2,7 +2,8 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 
 Given('User must be on Home Page', () => {
-  cy.visit('http://stg.beno.com')
+  
+  cy.visit(Cypress.env('baseUrl'))
   cy.wait(3000)
  
 });

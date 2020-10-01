@@ -2,11 +2,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 
 Given('User select PicKup-Location', () => {
-  cy.visit('http://stg.beno.com')
+  
+  cy.visit(Cypress.env('baseUrl'))
   cy.xpath("//input[@placeholder='Dubai, United Arab Emirates (DXB-Dubai Intl.)']").type('Dubai')
   cy.wait(2000)
   cy.xpath("//ul[@role='listbox']//li/descendant::div[@class='ui-helper-clearfix ng-star-inserted']").
-  contains('Dubai Mall').click({force:true})
+  contains('Dubai International Airport').click({force:true})
   cy.wait(3000)
 
 });
