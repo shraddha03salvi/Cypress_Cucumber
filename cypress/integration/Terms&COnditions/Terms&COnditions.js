@@ -6,8 +6,6 @@ Given('User must be on Home page', () => {
 
   cy.visit(Cypress.env('baseUrl'))
   cy.wait(3000)
-
-  
 });
 
 When('User click on Help Icon and user should navigate to Help page', () => {
@@ -16,16 +14,13 @@ When('User click on Help Icon and user should navigate to Help page', () => {
   cy.xpath("//a[contains(text(),'Help')]")
   .click({force:true})
   cy.wait(1000)
-  // cy.xpath("//a[@class='navbar-toggle active']").click({force:true})
-  // cy.wait(2000)
 });
 
-When('User click on privacy Option', () => {
-  cy.xpath("//a[contains(text(),'Privacy')]").click();
-  cy.wait(2000)
-
+When('User click on Terms & condition Option', () => {
+  cy.xpath("//a[contains(text(),'Terms & Conditions')]").click()
+  cy.wait(3000)
 });
 
-Then('User should able to navigate to privacy page', () => {
-
+Then('User should able to navigate to Terms & condition', () => {
+  
 });
