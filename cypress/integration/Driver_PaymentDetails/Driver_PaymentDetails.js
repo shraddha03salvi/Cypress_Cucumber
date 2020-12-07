@@ -49,7 +49,7 @@ Given('User select car Deal And user click on Book Without protection Button', (
     cy.xpath("//input[@placeholder='Dubai, United Arab Emirates (DXB-Dubai Intl.)']").type('Dubai')
     cy.wait(2000)
     cy.xpath("//ul[@role='listbox']//li/descendant::div[@class='ui-helper-clearfix ng-star-inserted']").
-        contains('Dubai International Airport').click({ force: true })
+     contains('Dubai International Airport').click({ force: true })
     cy.wait(3000)
 
     cy.log('Click on Find Car Button')

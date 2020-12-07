@@ -9,7 +9,7 @@ Given('User must be on Home page of WebSite', () => {
 When('User click on Manage Booking option', () => {
   cy.get('.navbar-toggle').click()
   cy.wait(2000)
-  cy.xpath("//a[contains(text(),'Manage Booking')]").click()
+  cy.xpath("//app-header/main[1]/nav[1]/div[2]/ul[1]/li[3]/a[1]").click()
   cy.wait(2000)
 });
 
@@ -24,5 +24,5 @@ When('Enter Email address and Booking Id', () => {
 Then('User click on submit and User should navigate to Booking ID page', () => {
   cy.get('#btnFindBooking').click({force:true})
   cy.wait(3000)
-  cy.xpath("//a[@class='navbar-toggle active']").click({force:true})
+  //cy.xpath("//a[@class='navbar-toggle active']").click({force:true})
 });
