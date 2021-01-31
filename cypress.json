@@ -2,8 +2,9 @@
 {
      "chromeWebSecurity": false  ,
     "testFiles": "**/*.{feature,features}",
-    "reporter": "mochawesome",
+    "reporter": "cypress-multi-reporters",
   "reporterOptions": {
+    "reporterEnabled":"mochawesome",
    "reportDir":"cypress/reports",
    "reportFilename":"report",
     "overwrite": false,

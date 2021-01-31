@@ -15,25 +15,30 @@ Given('User selecting PickUp location', () => {
 
 Given('User click on FindCar button', () => {
   cy.wait(2000)
-  cy.xpath("//span[contains(text(),'FIND CAR')]").click({ force: true })
-  cy.wait(10000)
+  cy.get('#btn-findCar').click({ force: true })
+  cy.wait(50000)
 });
 
 Given('User click on SortBy Feature', () => {
-  cy.wait(5000)
+  cy.wait(1000)
   cy.xpath("//span[contains(text(),'High - Low')]").click({ force: true })
-  cy.wait(3000)
+  cy.wait(2000)
 });
 
 When('User click on Filter feature', () => {
   
-  cy.xpath("//div//p/p-checkbox[3]/div[1]/div[2]").click({force: true})
-  cy.wait(4000)
-  
+  cy.xpath("//span[contains(text(),'Filter Results')]").click({force: true})
+  cy.wait(3000)
+  cy.xpath("//body/p-dynamicdialog[1]//div[1]/div[2]/app-search-filters[1]/section[1]/p-accordion[1]/div[1]/p-accordiontab[1]/div[2]/div[1]/p[2]/p-checkbox[1]/div[1]/div[2]")
+  .click({force:true})
+  cy.wait(3000)
+  cy.xpath("//body/p-dynamicdialog[1]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]").click({force:true})
+  cy.wait(3000)
 });
 
 When('click on View deal option', () => {
-  cy.xpath("//div[2]/div[1]/app-product-list-item//div/div[2]/div/button/span").click()
+  cy.xpath("//body/app-root[1]/app-searchpage[1]/main[1]//div[1]/section[1]/div[3]/div[2]/div[1]/app-vehicle-display[1]/div[1]/div[2]/button[1]/span[1]")
+  .click()
   cy.wait(3000)
 });
 
