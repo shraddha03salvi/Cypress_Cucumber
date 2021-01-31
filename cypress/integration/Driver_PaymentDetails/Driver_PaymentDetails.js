@@ -54,6 +54,7 @@ Given('User select car Deal And user click on Book Without protection Button', (
 
     cy.log('Click on Find Car Button')
 
+<<<<<<< HEAD
     cy.get('#btn-findCar').click({ force: true })
     cy.wait(50000)
 
@@ -68,6 +69,20 @@ Given('User select car Deal And user click on Book Without protection Button', (
   
 cy.xpath("//body/app-root[1]/app-searchpage[1]/main[1]//div[1]/section[1]/div[3]/div[2]/div[1]/app-vehicle-display[1]/div[1]/div[2]/button[1]/span[1]").click()
     
+=======
+    cy.xpath("//span[contains(text(),'FIND CAR')]").click({ force: true })
+    cy.wait(50000)
+
+    //cy.url().should('eq','baseUrl'+'/search?'+pLoc+'&'+pTime+'&'+dTime)
+    cy.wait(4000)
+  
+    //https://stg.beno.com/search?pLoc=DXB&pTime=20200924T100000&dTime=20200925T100000
+    cy.visit((Cypress.env('baseUrl'))+'/search?'+'pLoc'+'='+pLoc+'&'+'pTime'+'='+pTime+'&'+'dTime'+'='+dTime)
+    cy.wait(55000)
+    cy.log('Click on View Deal ')
+  
+    cy.xpath("//div[2]/div[1]/app-product-list-item//div/div[2]/div/button/span").click()
+>>>>>>> fe04e8dcd365c68121950bca9ea82abd32d8f92e
     cy.wait(3000)
 
 

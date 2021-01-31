@@ -15,8 +15,13 @@ Given('User selecting PickUp location', () => {
 
 Given('User click on FindCar button', () => {
   cy.wait(2000)
+<<<<<<< HEAD
   cy.get('#btn-findCar').click({ force: true })
   cy.wait(50000)
+=======
+  cy.xpath("//span[contains(text(),'FIND CAR')]").click({ force: true })
+  cy.wait(10000)
+>>>>>>> fe04e8dcd365c68121950bca9ea82abd32d8f92e
 });
 
 Given('User click on SortBy Feature', () => {
@@ -37,8 +42,12 @@ When('User click on Filter feature', () => {
 });
 
 When('click on View deal option', () => {
+<<<<<<< HEAD
   cy.xpath("//body/app-root[1]/app-searchpage[1]/main[1]//div[1]/section[1]/div[3]/div[2]/div[1]/app-vehicle-display[1]/div[1]/div[2]/button[1]/span[1]")
   .click()
+=======
+  cy.xpath("//div[2]/div[1]/app-product-list-item//div/div[2]/div/button/span").click()
+>>>>>>> fe04e8dcd365c68121950bca9ea82abd32d8f92e
   cy.wait(3000)
 });
 
